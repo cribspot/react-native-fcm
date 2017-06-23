@@ -42,15 +42,7 @@ public class FIRLocalMessagingHelper {
     }
 
     public Class getMainActivityClass() {
-        String packageName = mContext.getPackageName();
-        Intent launchIntent = mContext.getPackageManager().getLaunchIntentForPackage(packageName);
-        String className = launchIntent.getComponent().getClassName();
-        try {
-            return Class.forName(className);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
+        return mContext.getClass();
     }
 
     private AlarmManager getAlarmManager() {
